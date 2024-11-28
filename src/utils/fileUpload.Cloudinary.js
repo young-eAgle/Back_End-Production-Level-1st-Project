@@ -1,4 +1,4 @@
-import {v2} from cloudinary
+import {v2 as cloudinary} from "cloudinary"
 import fs from "fs"
 
 cloudinary.config({
@@ -23,6 +23,7 @@ const uploadOnCloudinary = async (localFilePath) =>{
         })
         // file has been uploaded successfully.
         console.log("file is uploaded on the cloudinary", response.url);
+        fs.unlinkSync(localFilePath)
         return response
     }catch(error){
 
